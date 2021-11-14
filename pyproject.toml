@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "django-analytics"
+version = "0.1.0"
+description = ""
+authors = ["Chigryaev Stas <chigryaevstas@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/chigryaevstas/django-analytics"
+keywords = ["Django", "Django Rest Framework"]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Environment :: Web Environment',
+    'Framework :: Django',
+    'Framework :: Django :: 2.2',
+    'Framework :: Django :: 3.1',
+    'Framework :: Django :: 3.2',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Topic :: Software Development :: Libraries :: Python Modules'
+]
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+PyYAML = "^6.0"
+ua-parser = "^0.10.0"
+user-agents = "^2.2.0"
+Django = "^3.2.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = {version = "^21.10b0", allow-prereleases = true}
+pytest-django = "^4.4.0"
+tox = "^3.24.4"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

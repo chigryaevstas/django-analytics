@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: django-analytics
+Version: 0.1.0
+Summary: 
+Home-page: https://github.com/chigryaevstas/django-analytics
+License: MIT
+Keywords: Django,Django Rest Framework
+Author: Chigryaev Stas
+Author-email: chigryaevstas@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.1
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: Django (>=3.2.9,<4.0.0)
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: ua-parser (>=0.10.0,<0.11.0)
+Requires-Dist: user-agents (>=2.2.0,<3.0.0)
+Project-URL: Repository, https://github.com/chigryaevstas/django-analytics
+Description-Content-Type: text/x-rst
+
+Django Analytics 
+========================
+The Django module that allows you to track views on a site. Works only with views based on Django [Class-based](https://docs.djangoproject.com/en/3.2/topics/class-based-views/) views.
+
+Installation
+------------
+1. Install with **pip**:
+
+    .. code-block:: sh
+        pip install https://github.com/chigryaevstas/django-analytics/master.zip
+
+
+
+
+2. Add 'django_analytics' to your ``INSTALLED_APPS`` setting:
+
+    .. code-block:: python
+        settings.py
+
+        INSTALLED_APPS = [
+            # ...,
+            'django_analytics',
+            # ...,
+        ]
+
+3. Add the middleware:
+
+    .. code-block:: python
+
+        MIDDLEWARE = [
+            # ...,
+            "django_analytics.middleware.Analytics",
+            # ...,
+        ]
+
+
+Usage
+-----
+In order for `django_analytics` to start tracking, you need to mark the class view with the word `Tracking`.
+
+.. code-block:: python
+
+    from django.views.generic import DetailView
+    from .models import Article
+
+
+    class ArticleViewTracking(DetailView):
+        model = Article
+        ...
+    ]
+
+
+Changelog
+---------
+
+### Version 0.1.0
+
+* Initial release
