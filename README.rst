@@ -28,6 +28,8 @@ Installation
 3. Add the middleware:
 
     .. code-block:: python
+    
+        settings.py
 
         MIDDLEWARE = [
             # ...,
@@ -49,7 +51,6 @@ In order for `django_analytics` to start tracking, you need to mark the class vi
     class ArticleViewTracking(DetailView):
         model = Article
         ...
-    ]
 
 
 Changelog
