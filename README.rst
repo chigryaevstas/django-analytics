@@ -1,6 +1,6 @@
 Django Analytics 
 ========================
-The Django module that allows you to track views on a site. Works only with views based on Django [Class-based](https://docs.djangoproject.com/en/3.2/topics/class-based-views/) views.
+The Django module that allows you to track views on a site. Works only with views based on `Django Class-based <https://docs.djangoproject.com/en/3.2/topics/class-based-views/>`_ views.
 
 Installation
 ------------
