@@ -11,8 +11,8 @@ class Analytics:
 
     def process_view(self, request, view_func, view_args, view_kwargs):
 
-        # Checking the view. If the name contains the "Tracking" identifier, call the Provider class.
-        if re.findall(r"Tracking", view_func.__name__, flags=re.IGNORECASE):
+        # Checking the view. If the name contains the identifier "__" at the end, call the Provider class.
+        if re.findall(r"__$", view_func.__name__, flags=re.IGNORECASE):
             view = Provider(request, view_func, view_kwargs)
             view.add()
             return None
