@@ -1,10 +1,12 @@
-from types import ModuleType, FunctionType
-from django.contrib.contenttypes.models import ContentType
-from .models import Visitor, PageView, UserAgent
-from typing import Dict
 import importlib
-from .utils import Info
+from types import FunctionType, ModuleType
+from typing import Dict
+
+from django.contrib.contenttypes.models import ContentType
 from django.http.request import HttpRequest
+
+from .models import PageView, UserAgent, Visitor
+from .utils import Info
 
 
 class Provider:
@@ -30,7 +32,10 @@ class Provider:
         **NOTE** The view must use class-based views. In which the model should be indicated.
             https://docs.djangoproject.com/en/3.2/topics/class-based-views/
         """
-        import_module = importlib.import_module(self._model.__module__)
+        try:
+            import_module = importlib.import_module(self._model.__module__)
+        except ImportError as e:
+            raise ImportError(e)
         self.import_view_cls = getattr(import_module, self._model.__name__)
 
     def add(self) -> None:
@@ -62,6 +67,9 @@ class Provider:
             view = PageView.objects.create(content_object=view_entry)
 
         # Preparing data about user.
+        if self.request.session.session_key is None:
+            self.request.session.save()
+
         user = self.request.user
         info = Info(self.request)
         ip = info.get_ip
