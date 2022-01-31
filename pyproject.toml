@@ -45,6 +45,7 @@ pytest-django = "^4.4.0"
 tox = "^3.24.4"
 flake8 = "^4.0.1"
 isort = "^5.10.1"
+pytest-cov = "^3.0.0"
 
 
 [build-system]

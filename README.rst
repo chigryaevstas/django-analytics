@@ -40,7 +40,7 @@ Installation
 
 Usage
 -----
-In order for `django_analytics` to start tracking, you need to mark the class view with the word `Tracking`.
+In order for `django_analytics` to start tracking, you need to mark the class view with the `__`.
 
 .. code-block:: python
 
@@ -48,7 +48,7 @@ In order for `django_analytics` to start tracking, you need to mark the class vi
     from .models import Article
 
 
-    class ArticleViewTracking(DetailView):
+    class ArticleView__(DetailView):
         model = Article
         ...
 
